@@ -19,24 +19,51 @@ void fontsize(int a, int b) {
 int main()
 {
     std::cout << "Copyright YukiHai! GitHub.com/inhl-gaming\n";
-    
+    HANDLE color = GetStdHandle(STD_OUTPUT_HANDLE);
  while (true) {
      fontsize(10, 18);
      std::cout << "GTI-Bank Zins Rechner made by YukiHai!\n";
+    //Just a mathematical test
+     //float z, c, x;
+
+     //z = 0.0095;
+    // c = 100000;
+
+    // x = c * z;
+    // std::cout << x;
+
      std::cout << "\n";
         int einzug;
         float wert;
         int laufzeit;
+        float zinsen;
 
-
-        std::cout << "Bitte gebe die Laufzeit ein: \n";
+        std::cout << "Bitte gebe die Laufzeit ein: ";
+        SetConsoleTextAttribute(color, 10);
         std::cin >> laufzeit;
-
+        std::cout << "\n";
+        SetConsoleTextAttribute(color, 7);
+        std::cout << "Deine eingabe war " << laufzeit << " Monate \n";   
         std::cout << "\n";
 
-        std::cout << "Bitt gebe die Einzahlungsquote ein: \n";
+
+        std::cout << "Bitte gebe die Einzahlungsquote ein: ";
+        SetConsoleTextAttribute(color, 10);
         std::cin >> einzug;
         std::cout << "\n";
+        SetConsoleTextAttribute(color, 7);
+        std::cout << "Deine eingabe war " << einzug << " $ \n";
+        std::cout << "\n";
+
+        std::cout << "0.02 = 2% | 0.015 = 1,5% | 0.0095 \n";
+        std::cout << "Beachte! PUNKT ( . ) und nicht KOMMA ( , ) ! \n";
+        std::cout << "Bitte waehle die Zinsrate: \n";
+        SetConsoleTextAttribute(color, 10);
+        std::cin >> zinsen;
+        SetConsoleTextAttribute(color, 7);
+        std::cout << "\n";
+
+
         wert = 0;
         wert = einzug;
         int zins;
@@ -45,13 +72,13 @@ int main()
         
         for (i = 1; i <= laufzeit; i++) {
 
-            zins = wert * 0.02;
+            zins = wert * zinsen;
 
             a = zins + wert;
 
             wert = a;
 
-            HANDLE color = GetStdHandle(STD_OUTPUT_HANDLE);
+           
 
             std::cout << "Nach dem " << i << ". Monat kriegt die Person >> ";
             SetConsoleTextAttribute(color, 10);
